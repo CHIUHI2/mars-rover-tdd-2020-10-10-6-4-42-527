@@ -36,22 +36,64 @@ public class MarsRover {
     public void executeCommand(String command) {
         switch (command) {
             case commandMoveForward :
-                if (directionNorth.equals(this.direction)) this.yLocation += 1;
-                else if (directionSouth.equals(this.direction)) this.yLocation -= 1;
-                else if (directionEast.equals(this.direction)) this.xLocation += 1;
-                else if (directionWest.equals(this.direction)) this.xLocation -= 1;
+                this.moveForward();
                 break;
             case commandTurnRight :
-                if (directionNorth.equals(this.direction)) this.direction = directionEast;
-                else if (directionEast.equals(this.direction)) this.direction = directionSouth;
-                else if (directionSouth.equals(this.direction)) this.direction = directionWest;
-                else if (directionWest.equals(this.direction)) this.direction = directionNorth;
+                this.turnRight();
                 break;
             case commandTurnLeft :
-                if (directionNorth.equals(this.direction)) this.direction = directionWest;
-                else if (directionEast.equals(this.direction)) this.direction = directionNorth;
-                else if (directionSouth.equals(this.direction)) this.direction = directionEast;
-                else if (directionWest.equals(this.direction)) this.direction = directionSouth;
+                this.turnLeft();
+                break;
+        }
+    }
+
+    public void moveForward() {
+        switch (this.direction) {
+            case directionNorth :
+                this.yLocation += 1;
+                break;
+            case directionEast :
+                this.xLocation += 1;
+                break;
+            case directionSouth :
+                this.yLocation -= 1;
+                break;
+            case directionWest :
+                this.xLocation -= 1;
+                break;
+        }
+    }
+
+    public void turnLeft() {
+        switch (this.direction) {
+            case directionNorth :
+                this.direction = directionWest;
+                break;
+            case directionEast :
+                this.direction = directionNorth;
+                break;
+            case directionSouth :
+                this.direction = directionEast;
+                break;
+            case directionWest :
+                this.direction = directionSouth;
+                break;
+        }
+    }
+
+    public void turnRight() {
+        switch (this.direction) {
+            case directionNorth :
+                this.direction = directionEast;
+                break;
+            case directionEast :
+                this.direction = directionSouth;
+                break;
+            case directionSouth :
+                this.direction = directionWest;
+                break;
+            case directionWest :
+                this.direction = directionNorth;
                 break;
         }
     }
