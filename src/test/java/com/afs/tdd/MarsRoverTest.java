@@ -1,0 +1,19 @@
+package com.afs.tdd;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class MarsRoverTest {
+    @Test
+    void should_y_add_1_when_process_command_given_0_0_N_M() {
+        //given
+        MarsRover marsRover = new MarsRover(0,0,"N");
+        //when
+        marsRover.processCommands("M");
+        //then
+        assertEquals(1, marsRover.getyLocation());
+        assertEquals(0, marsRover.getxLocation());
+        assertEquals("N", marsRover.getDirection());
+    }
+}
