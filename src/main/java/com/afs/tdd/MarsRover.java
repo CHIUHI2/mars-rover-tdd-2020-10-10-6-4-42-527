@@ -40,16 +40,19 @@ public class MarsRover {
                 else if (directionSouth.equals(this.direction)) this.yLocation -= 1;
                 else if (directionEast.equals(this.direction)) this.xLocation += 1;
                 else if (directionWest.equals(this.direction)) this.xLocation -= 1;
+                break;
             case commandTurnRight :
                 if (directionNorth.equals(this.direction)) this.direction = directionEast;
                 else if (directionEast.equals(this.direction)) this.direction = directionSouth;
                 else if (directionSouth.equals(this.direction)) this.direction = directionWest;
                 else if (directionWest.equals(this.direction)) this.direction = directionNorth;
+                break;
             case commandTurnLeft :
                 if (directionNorth.equals(this.direction)) this.direction = directionWest;
                 else if (directionEast.equals(this.direction)) this.direction = directionNorth;
                 else if (directionSouth.equals(this.direction)) this.direction = directionEast;
                 else if (directionWest.equals(this.direction)) this.direction = directionSouth;
+                break;
         }
     }
 }
