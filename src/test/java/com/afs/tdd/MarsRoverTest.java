@@ -73,4 +73,16 @@ class MarsRoverTest {
         assertEquals(0, marsRover.getxLocation());
         assertEquals(directionEast, marsRover.getDirection());
     }
+
+    @Test
+    void should_direction_change_S_when_process_command_given_0_0_E_R() {
+        //given
+        MarsRover marsRover = new MarsRover(0,0,directionEast);
+        //when
+        marsRover.processCommands(commandTurnRight);
+        //then
+        assertEquals(0, marsRover.getyLocation());
+        assertEquals(0, marsRover.getxLocation());
+        assertEquals(directionSouth, marsRover.getDirection());
+    }
 }
