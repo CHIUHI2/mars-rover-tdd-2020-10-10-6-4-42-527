@@ -49,6 +49,7 @@ public class MarsRover {
                 if (directionNorth.equals(this.direction)) this.direction = directionWest;
                 else if (directionEast.equals(this.direction)) this.direction = directionNorth;
                 else if (directionSouth.equals(this.direction)) this.direction = directionEast;
+                else if (directionWest.equals(this.direction)) this.direction = directionSouth;
         }
     }
 }
