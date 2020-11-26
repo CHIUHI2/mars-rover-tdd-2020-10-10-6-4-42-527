@@ -157,4 +157,17 @@ class MarsRoverTest {
         assertEquals(0, marsRover.getxLocation());
         assertEquals(directionSouth, marsRover.getDirection());
     }
+
+    @Test
+    void should_return_1_0_W_when_process_commands_given_0_0_N_MRMLRLM() {
+        //given
+        MarsRover marsRover = new MarsRover(0,0,directionWest);
+        //when
+        String commands = commandMoveForward + commandTurnRight + commandMoveForward + commandTurnLeft + commandTurnRight + commandTurnLeft + commandMoveForward;
+        marsRover.processCommands(commands);
+        //then
+        assertEquals(1, marsRover.getyLocation());
+        assertEquals(0, marsRover.getxLocation());
+        assertEquals(directionWest, marsRover.getDirection());
+    }
 }
