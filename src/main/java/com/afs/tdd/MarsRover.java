@@ -20,20 +20,27 @@ public class MarsRover {
     public String getDirection() { return direction; }
 
     public void processCommands(String commands) {
+        Invoker invoker = new Invoker();
+
         Arrays.asList(commands.split(""))
-                .forEach(command -> this.executeCommand(command));
+                .forEach(command -> this.submitCommand(invoker, command));
+
+        invoker.executeCommands();
     }
 
-    public void executeCommand(String command) {
+    public void submitCommand(Invoker invoker, String command) {
         switch (command) {
             case MarsRoverConstant.commandMoveForward :
-                this.moveForward();
+                MoveForwardCommand moveForwardCommand = new MoveForwardCommand(this);
+                invoker.addCommand(moveForwardCommand);
                 break;
             case MarsRoverConstant.commandTurnRight :
-                this.turnRight();
+                TurnRightCommand turnRightCommand = new TurnRightCommand(this);
+                invoker.addCommand(turnRightCommand);
                 break;
             case MarsRoverConstant.commandTurnLeft :
-                this.turnLeft();
+                TurnLeftCommand turnLeftCommand = new TurnLeftCommand(this);
+                invoker.addCommand(turnLeftCommand);
                 break;
         }
     }
