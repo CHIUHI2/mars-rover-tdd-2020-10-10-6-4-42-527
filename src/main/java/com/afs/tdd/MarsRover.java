@@ -44,6 +44,7 @@ public class MarsRover {
             case commandTurnRight :
                 if (directionNorth.equals(this.direction)) this.direction = directionEast;
                 else if (directionEast.equals(this.direction)) this.direction = directionSouth;
+                else if (directionSouth.equals(this.direction)) this.direction = directionWest;
         }
     }
 }
