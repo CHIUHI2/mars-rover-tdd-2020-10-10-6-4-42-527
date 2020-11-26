@@ -65,7 +65,7 @@ class MarsRoverTest {
     @Test
     void should_direction_change_E_when_process_command_given_0_0_N_R() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,directionWest);
+        MarsRover marsRover = new MarsRover(0,0,directionNorth);
         //when
         marsRover.processCommands(commandTurnRight);
         //then
