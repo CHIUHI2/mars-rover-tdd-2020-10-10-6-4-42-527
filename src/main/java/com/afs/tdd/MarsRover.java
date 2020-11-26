@@ -24,24 +24,15 @@ public class MarsRover {
                 .forEach(command -> this.executeCommand(command));
     }
 
-    private static final String directionNorth = "N";
-    private static final String directionSouth = "S";
-    private static final String directionEast = "E";
-    private static final String directionWest = "W";
-
-    private static final String commandMoveForward = "M";
-    private static final String commandTurnLeft = "L";
-    private static final String commandTurnRight = "R";
-
     public void executeCommand(String command) {
         switch (command) {
-            case commandMoveForward :
+            case MarsRoverConstant.commandMoveForward :
                 this.moveForward();
                 break;
-            case commandTurnRight :
+            case MarsRoverConstant.commandTurnRight :
                 this.turnRight();
                 break;
-            case commandTurnLeft :
+            case MarsRoverConstant.commandTurnLeft :
                 this.turnLeft();
                 break;
         }
@@ -49,16 +40,16 @@ public class MarsRover {
 
     public void moveForward() {
         switch (this.direction) {
-            case directionNorth :
+            case MarsRoverConstant.directionNorth :
                 this.yLocation += 1;
                 break;
-            case directionEast :
+            case MarsRoverConstant.directionEast :
                 this.xLocation += 1;
                 break;
-            case directionSouth :
+            case MarsRoverConstant.directionSouth :
                 this.yLocation -= 1;
                 break;
-            case directionWest :
+            case MarsRoverConstant.directionWest :
                 this.xLocation -= 1;
                 break;
         }
@@ -66,34 +57,34 @@ public class MarsRover {
 
     public void turnLeft() {
         switch (this.direction) {
-            case directionNorth :
-                this.direction = directionWest;
+            case MarsRoverConstant.directionNorth :
+                this.direction = MarsRoverConstant.directionWest;
                 break;
-            case directionEast :
-                this.direction = directionNorth;
+            case MarsRoverConstant.directionEast :
+                this.direction = MarsRoverConstant.directionNorth;
                 break;
-            case directionSouth :
-                this.direction = directionEast;
+            case MarsRoverConstant.directionSouth :
+                this.direction = MarsRoverConstant.directionEast;
                 break;
-            case directionWest :
-                this.direction = directionSouth;
+            case MarsRoverConstant.directionWest :
+                this.direction = MarsRoverConstant.directionSouth;
                 break;
         }
     }
 
     public void turnRight() {
         switch (this.direction) {
-            case directionNorth :
-                this.direction = directionEast;
+            case MarsRoverConstant.directionNorth :
+                this.direction = MarsRoverConstant.directionEast;
                 break;
-            case directionEast :
-                this.direction = directionSouth;
+            case MarsRoverConstant.directionEast :
+                this.direction = MarsRoverConstant.directionSouth;
                 break;
-            case directionSouth :
-                this.direction = directionWest;
+            case MarsRoverConstant.directionSouth :
+                this.direction = MarsRoverConstant.directionWest;
                 break;
-            case directionWest :
-                this.direction = directionNorth;
+            case MarsRoverConstant.directionWest :
+                this.direction = MarsRoverConstant.directionNorth;
                 break;
         }
     }
