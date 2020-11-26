@@ -25,10 +25,12 @@ public class MarsRover {
     }
 
     private static final String directionNorth = "N";
+    private static final String directionSouth = "S";
     public void executeCommand(String command) {
         switch (command) {
             case "M" :
                 if (directionNorth.equals(this.direction)) this.yLocation += 1;
+                else if (directionSouth.equals(this.direction)) this.yLocation -= 1;
         }
     }
 }
