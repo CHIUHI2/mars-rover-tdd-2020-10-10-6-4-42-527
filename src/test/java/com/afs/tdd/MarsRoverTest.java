@@ -159,15 +159,15 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_1_0_W_when_process_commands_given_0_0_N_MRMLRLM() {
+    void should_return_2_1_N_when_process_commands_given_0_0_N_MRMLRLM() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,directionWest);
+        MarsRover marsRover = new MarsRover(0,0,directionNorth);
         //when
         String commands = commandMoveForward + commandTurnRight + commandMoveForward + commandTurnLeft + commandTurnRight + commandTurnLeft + commandMoveForward;
         marsRover.processCommands(commands);
         //then
-        assertEquals(1, marsRover.getyLocation());
-        assertEquals(0, marsRover.getxLocation());
-        assertEquals(directionWest, marsRover.getDirection());
+        assertEquals(2, marsRover.getyLocation());
+        assertEquals(1, marsRover.getxLocation());
+        assertEquals(directionNorth, marsRover.getDirection());
     }
 }
