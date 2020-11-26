@@ -28,9 +28,14 @@ public class MarsRover {
     private static final String directionSouth = "S";
     private static final String directionEast = "E";
     private static final String directionWest = "W";
+
+    private static final String commandMoveForward = "M";
+    private static final String commandTurnLeft = "L";
+    private static final String commandTurnRight = "R";
+
     public void executeCommand(String command) {
         switch (command) {
-            case "M" :
+            case commandMoveForward :
                 if (directionNorth.equals(this.direction)) this.yLocation += 1;
                 else if (directionSouth.equals(this.direction)) this.yLocation -= 1;
                 else if (directionEast.equals(this.direction)) this.xLocation += 1;
