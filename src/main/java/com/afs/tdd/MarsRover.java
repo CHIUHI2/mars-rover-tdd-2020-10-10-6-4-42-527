@@ -13,9 +13,9 @@ public class MarsRover {
         this.direction = direction;
     }
 
-    public int getxLocation() { return xLocation; }
+    public int getXLocation() { return xLocation; }
 
-    public int getyLocation() { return yLocation; }
+    public int getYLocation() { return yLocation; }
 
     public String getDirection() { return direction; }
 
@@ -26,6 +26,8 @@ public class MarsRover {
                 .forEach(command -> this.submitCommand(invoker, command));
 
         invoker.executeCommands();
+
+        System.out.printf("Y Location : %s\nX Location : %s\nHeading : %s", this.yLocation, this.xLocation, this.direction);
     }
 
     public void submitCommand(Invoker invoker, String command) {
