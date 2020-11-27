@@ -8,164 +8,164 @@ class MarsRoverTest {
     @Test
     void should_y_add_1_when_process_command_given_0_0_N_M() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,MarsRoverConstant.directionNorth);
+        MarsRover marsRover = new MarsRover(0,0,Direction.NORTH);
         //when
-        marsRover.processCommands(MarsRoverConstant.commandMoveForward);
+        marsRover.processCommands(Instruction.MOVE_FORWARD.getLabel());
         //then
         assertEquals(1, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
-        assertEquals(MarsRoverConstant.directionNorth, marsRover.getDirection());
+        assertEquals(Direction.NORTH, marsRover.getDirection());
     }
 
     @Test
     void should_y_minus_1_when_process_command_given_0_0_S_M() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,MarsRoverConstant.directionSouth);
+        MarsRover marsRover = new MarsRover(0,0, Direction.SOUTH);
         //when
-        marsRover.processCommands(MarsRoverConstant.commandMoveForward);
+        marsRover.processCommands(Instruction.MOVE_FORWARD.getLabel());
         //then
         assertEquals(-1, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
-        assertEquals(MarsRoverConstant.directionSouth, marsRover.getDirection());
+        assertEquals(Direction.SOUTH, marsRover.getDirection());
     }
 
     @Test
     void should_x_add_1_when_process_command_given_0_0_E_M() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,MarsRoverConstant.directionEast);
+        MarsRover marsRover = new MarsRover(0,0,Direction.EAST);
         //when
-        marsRover.processCommands(MarsRoverConstant.commandMoveForward);
+        marsRover.processCommands(Instruction.MOVE_FORWARD.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(1, marsRover.getXLocation());
-        assertEquals(MarsRoverConstant.directionEast, marsRover.getDirection());
+        assertEquals(Direction.EAST, marsRover.getDirection());
     }
 
     @Test
     void should_x_minus_1_when_process_command_given_0_0_W_M() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,MarsRoverConstant.directionWest);
+        MarsRover marsRover = new MarsRover(0,0,Direction.WEST);
         //when
-        marsRover.processCommands(MarsRoverConstant.commandMoveForward);
+        marsRover.processCommands(Instruction.MOVE_FORWARD.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(-1, marsRover.getXLocation());
-        assertEquals(MarsRoverConstant.directionWest, marsRover.getDirection());
+        assertEquals(Direction.WEST, marsRover.getDirection());
     }
 
     @Test
     void should_direction_change_E_when_process_command_given_0_0_N_R() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,MarsRoverConstant.directionNorth);
+        MarsRover marsRover = new MarsRover(0,0,Direction.NORTH);
         //when
-        marsRover.processCommands(MarsRoverConstant.commandTurnRight);
+        marsRover.processCommands(Instruction.TURN_RIGHT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
-        assertEquals(MarsRoverConstant.directionEast, marsRover.getDirection());
+        assertEquals(Direction.EAST, marsRover.getDirection());
     }
 
     @Test
     void should_direction_change_S_when_process_command_given_0_0_E_R() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,MarsRoverConstant.directionEast);
+        MarsRover marsRover = new MarsRover(0,0,Direction.EAST);
         //when
-        marsRover.processCommands(MarsRoverConstant.commandTurnRight);
+        marsRover.processCommands(Instruction.TURN_RIGHT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
-        assertEquals(MarsRoverConstant.directionSouth, marsRover.getDirection());
+        assertEquals(Direction.SOUTH, marsRover.getDirection());
     }
 
     @Test
     void should_direction_change_W_when_process_command_given_0_0_S_R() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,MarsRoverConstant.directionSouth);
+        MarsRover marsRover = new MarsRover(0,0,Direction.SOUTH);
         //when
-        marsRover.processCommands(MarsRoverConstant.commandTurnRight);
+        marsRover.processCommands(Instruction.TURN_RIGHT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
-        assertEquals(MarsRoverConstant.directionWest, marsRover.getDirection());
+        assertEquals(Direction.WEST, marsRover.getDirection());
     }
 
     @Test
     void should_direction_change_N_when_process_command_given_0_0_W_R() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,MarsRoverConstant.directionWest);
+        MarsRover marsRover = new MarsRover(0,0,Direction.WEST);
         //when
-        marsRover.processCommands(MarsRoverConstant.commandTurnRight);
+        marsRover.processCommands(Instruction.TURN_RIGHT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
-        assertEquals(MarsRoverConstant.directionNorth, marsRover.getDirection());
+        assertEquals(Direction.NORTH, marsRover.getDirection());
     }
 
     @Test
     void should_direction_change_W_when_process_command_given_0_0_N_L() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,MarsRoverConstant.directionNorth);
+        MarsRover marsRover = new MarsRover(0,0,Direction.NORTH);
         //when
-        marsRover.processCommands(MarsRoverConstant.commandTurnLeft);
+        marsRover.processCommands(Instruction.TURN_LEFT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
-        assertEquals(MarsRoverConstant.directionWest, marsRover.getDirection());
+        assertEquals(Direction.WEST, marsRover.getDirection());
     }
 
     @Test
     void should_direction_change_N_when_process_command_given_0_0_E_L() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,MarsRoverConstant.directionEast);
+        MarsRover marsRover = new MarsRover(0,0,Direction.EAST);
         //when
-        marsRover.processCommands(MarsRoverConstant.commandTurnLeft);
+        marsRover.processCommands(Instruction.TURN_LEFT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
-        assertEquals(MarsRoverConstant.directionNorth, marsRover.getDirection());
+        assertEquals(Direction.NORTH, marsRover.getDirection());
     }
 
     @Test
     void should_direction_change_E_when_process_command_given_0_0_S_L() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,MarsRoverConstant.directionSouth);
+        MarsRover marsRover = new MarsRover(0,0,Direction.SOUTH);
         //when
-        marsRover.processCommands(MarsRoverConstant.commandTurnLeft);
+        marsRover.processCommands(Instruction.TURN_LEFT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
-        assertEquals(MarsRoverConstant.directionEast, marsRover.getDirection());
+        assertEquals(Direction.EAST, marsRover.getDirection());
     }
 
     @Test
     void should_direction_change_S_when_process_command_given_0_0_W_L() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,MarsRoverConstant.directionWest);
+        MarsRover marsRover = new MarsRover(0,0,Direction.WEST);
         //when
-        marsRover.processCommands(MarsRoverConstant.commandTurnLeft);
+        marsRover.processCommands(Instruction.TURN_LEFT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
-        assertEquals(MarsRoverConstant.directionSouth, marsRover.getDirection());
+        assertEquals(Direction.SOUTH, marsRover.getDirection());
     }
 
     @Test
     void should_return_2_1_N_when_process_commands_given_0_0_N_MRMLRLM() {
         //given
-        MarsRover marsRover = new MarsRover(0,0,MarsRoverConstant.directionNorth);
+        MarsRover marsRover = new MarsRover(0,0,Direction.NORTH);
         //when
-        String commands = MarsRoverConstant.commandMoveForward
-                .concat(MarsRoverConstant.commandTurnRight)
-                .concat(MarsRoverConstant.commandMoveForward)
-                .concat(MarsRoverConstant.commandTurnLeft)
-                .concat(MarsRoverConstant.commandTurnRight)
-                .concat(MarsRoverConstant.commandTurnLeft)
-                .concat(MarsRoverConstant.commandMoveForward);
+        String commands = Instruction.MOVE_FORWARD.getLabel()
+                .concat(Instruction.TURN_RIGHT.getLabel())
+                .concat(Instruction.MOVE_FORWARD.getLabel())
+                .concat(Instruction.TURN_LEFT.getLabel())
+                .concat(Instruction.TURN_RIGHT.getLabel())
+                .concat(Instruction.TURN_LEFT.getLabel())
+                .concat(Instruction.MOVE_FORWARD.getLabel());
 
         marsRover.processCommands(commands);
         //then
         assertEquals(2, marsRover.getYLocation());
         assertEquals(1, marsRover.getXLocation());
-        assertEquals(MarsRoverConstant.directionNorth, marsRover.getDirection());
+        assertEquals(Direction.NORTH, marsRover.getDirection());
     }
 }

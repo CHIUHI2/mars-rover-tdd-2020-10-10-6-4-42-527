@@ -1,13 +1,14 @@
 package com.afs.tdd;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class MarsRover {
     private int xLocation;
     private int yLocation;
-    private String direction;
+    private Direction direction;
 
-    public MarsRover(int xLocation, int yLocation, String direction) {
+    public MarsRover(int xLocation, int yLocation, Direction direction) {
         this.xLocation = xLocation;
         this.yLocation = yLocation;
         this.direction = direction;
@@ -17,30 +18,32 @@ public class MarsRover {
 
     public int getYLocation() { return yLocation; }
 
-    public String getDirection() { return direction; }
+    public Direction getDirection() { return direction; }
 
     public void processCommands(String commands) {
         Invoker invoker = new Invoker();
 
-        Arrays.asList(commands.split(""))
-                .forEach(command -> this.submitCommand(invoker, command));
+        Arrays.stream(commands.split(""))
+                .map(Instruction::getEnum)
+                .filter(Objects::nonNull)
+                .forEach(command -> this.submitInstruction(invoker, command));
 
         invoker.executeCommands();
 
         System.out.printf("Y Location : %s\nX Location : %s\nHeading : %s", this.yLocation, this.xLocation, this.direction);
     }
 
-    public void submitCommand(Invoker invoker, String command) {
-        switch (command) {
-            case MarsRoverConstant.commandMoveForward :
+    public void submitInstruction(Invoker invoker, Instruction instruction) {
+        switch (instruction) {
+            case MOVE_FORWARD :
                 MoveForwardCommand moveForwardCommand = new MoveForwardCommand(this);
                 invoker.addCommand(moveForwardCommand);
                 break;
-            case MarsRoverConstant.commandTurnRight :
+            case TURN_RIGHT :
                 TurnRightCommand turnRightCommand = new TurnRightCommand(this);
                 invoker.addCommand(turnRightCommand);
                 break;
-            case MarsRoverConstant.commandTurnLeft :
+            case TURN_LEFT :
                 TurnLeftCommand turnLeftCommand = new TurnLeftCommand(this);
                 invoker.addCommand(turnLeftCommand);
                 break;
@@ -49,16 +52,16 @@ public class MarsRover {
 
     public void moveForward() {
         switch (this.direction) {
-            case MarsRoverConstant.directionNorth :
+            case NORTH :
                 this.yLocation += 1;
                 break;
-            case MarsRoverConstant.directionEast :
+            case EAST :
                 this.xLocation += 1;
                 break;
-            case MarsRoverConstant.directionSouth :
+            case SOUTH :
                 this.yLocation -= 1;
                 break;
-            case MarsRoverConstant.directionWest :
+            case WEST :
                 this.xLocation -= 1;
                 break;
         }
@@ -66,34 +69,34 @@ public class MarsRover {
 
     public void turnLeft() {
         switch (this.direction) {
-            case MarsRoverConstant.directionNorth :
-                this.direction = MarsRoverConstant.directionWest;
+            case NORTH :
+                this.direction = Direction.WEST;
                 break;
-            case MarsRoverConstant.directionEast :
-                this.direction = MarsRoverConstant.directionNorth;
+            case EAST :
+                this.direction = Direction.NORTH;
                 break;
-            case MarsRoverConstant.directionSouth :
-                this.direction = MarsRoverConstant.directionEast;
+            case SOUTH :
+                this.direction = Direction.EAST;
                 break;
-            case MarsRoverConstant.directionWest :
-                this.direction = MarsRoverConstant.directionSouth;
+            case WEST :
+                this.direction = Direction.SOUTH;
                 break;
         }
     }
 
     public void turnRight() {
         switch (this.direction) {
-            case MarsRoverConstant.directionNorth :
-                this.direction = MarsRoverConstant.directionEast;
+            case NORTH :
+                this.direction = Direction.EAST;
                 break;
-            case MarsRoverConstant.directionEast :
-                this.direction = MarsRoverConstant.directionSouth;
+            case EAST :
+                this.direction = Direction.SOUTH;
                 break;
-            case MarsRoverConstant.directionSouth :
-                this.direction = MarsRoverConstant.directionWest;
+            case SOUTH :
+                this.direction = Direction.WEST;
                 break;
-            case MarsRoverConstant.directionWest :
-                this.direction = MarsRoverConstant.directionNorth;
+            case WEST :
+                this.direction = Direction.NORTH;
                 break;
         }
     }
