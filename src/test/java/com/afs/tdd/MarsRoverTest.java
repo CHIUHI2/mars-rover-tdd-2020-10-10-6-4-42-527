@@ -10,7 +10,7 @@ class MarsRoverTest {
         //given
         MarsRover marsRover = new MarsRover(0,0,Direction.NORTH);
         //when
-        marsRover.processCommands(Instruction.MOVE_FORWARD.getLabel());
+        marsRover.processInstructions(Instruction.MOVE_FORWARD.getLabel());
         //then
         assertEquals(1, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
@@ -22,7 +22,7 @@ class MarsRoverTest {
         //given
         MarsRover marsRover = new MarsRover(0,0, Direction.SOUTH);
         //when
-        marsRover.processCommands(Instruction.MOVE_FORWARD.getLabel());
+        marsRover.processInstructions(Instruction.MOVE_FORWARD.getLabel());
         //then
         assertEquals(-1, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
@@ -34,7 +34,7 @@ class MarsRoverTest {
         //given
         MarsRover marsRover = new MarsRover(0,0,Direction.EAST);
         //when
-        marsRover.processCommands(Instruction.MOVE_FORWARD.getLabel());
+        marsRover.processInstructions(Instruction.MOVE_FORWARD.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(1, marsRover.getXLocation());
@@ -46,7 +46,7 @@ class MarsRoverTest {
         //given
         MarsRover marsRover = new MarsRover(0,0,Direction.WEST);
         //when
-        marsRover.processCommands(Instruction.MOVE_FORWARD.getLabel());
+        marsRover.processInstructions(Instruction.MOVE_FORWARD.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(-1, marsRover.getXLocation());
@@ -58,7 +58,7 @@ class MarsRoverTest {
         //given
         MarsRover marsRover = new MarsRover(0,0,Direction.NORTH);
         //when
-        marsRover.processCommands(Instruction.TURN_RIGHT.getLabel());
+        marsRover.processInstructions(Instruction.TURN_RIGHT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
@@ -70,7 +70,7 @@ class MarsRoverTest {
         //given
         MarsRover marsRover = new MarsRover(0,0,Direction.EAST);
         //when
-        marsRover.processCommands(Instruction.TURN_RIGHT.getLabel());
+        marsRover.processInstructions(Instruction.TURN_RIGHT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
@@ -82,7 +82,7 @@ class MarsRoverTest {
         //given
         MarsRover marsRover = new MarsRover(0,0,Direction.SOUTH);
         //when
-        marsRover.processCommands(Instruction.TURN_RIGHT.getLabel());
+        marsRover.processInstructions(Instruction.TURN_RIGHT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
@@ -94,7 +94,7 @@ class MarsRoverTest {
         //given
         MarsRover marsRover = new MarsRover(0,0,Direction.WEST);
         //when
-        marsRover.processCommands(Instruction.TURN_RIGHT.getLabel());
+        marsRover.processInstructions(Instruction.TURN_RIGHT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
@@ -106,7 +106,7 @@ class MarsRoverTest {
         //given
         MarsRover marsRover = new MarsRover(0,0,Direction.NORTH);
         //when
-        marsRover.processCommands(Instruction.TURN_LEFT.getLabel());
+        marsRover.processInstructions(Instruction.TURN_LEFT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
@@ -118,7 +118,7 @@ class MarsRoverTest {
         //given
         MarsRover marsRover = new MarsRover(0,0,Direction.EAST);
         //when
-        marsRover.processCommands(Instruction.TURN_LEFT.getLabel());
+        marsRover.processInstructions(Instruction.TURN_LEFT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
@@ -130,7 +130,7 @@ class MarsRoverTest {
         //given
         MarsRover marsRover = new MarsRover(0,0,Direction.SOUTH);
         //when
-        marsRover.processCommands(Instruction.TURN_LEFT.getLabel());
+        marsRover.processInstructions(Instruction.TURN_LEFT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
@@ -142,7 +142,7 @@ class MarsRoverTest {
         //given
         MarsRover marsRover = new MarsRover(0,0,Direction.WEST);
         //when
-        marsRover.processCommands(Instruction.TURN_LEFT.getLabel());
+        marsRover.processInstructions(Instruction.TURN_LEFT.getLabel());
         //then
         assertEquals(0, marsRover.getYLocation());
         assertEquals(0, marsRover.getXLocation());
@@ -162,7 +162,7 @@ class MarsRoverTest {
                 .concat(Instruction.TURN_LEFT.getLabel())
                 .concat(Instruction.MOVE_FORWARD.getLabel());
 
-        marsRover.processCommands(commands);
+        marsRover.processInstructions(commands);
         //then
         assertEquals(2, marsRover.getYLocation());
         assertEquals(1, marsRover.getXLocation());

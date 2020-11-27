@@ -20,13 +20,13 @@ public class MarsRover {
 
     public Direction getDirection() { return direction; }
 
-    public void processCommands(String commands) {
+    public void processInstructions(String instructions) {
         Invoker invoker = new Invoker();
 
-        Arrays.stream(commands.split(""))
+        Arrays.stream(instructions.split(""))
                 .map(Instruction::getEnum)
                 .filter(Objects::nonNull)
-                .forEach(command -> this.submitInstruction(invoker, command));
+                .forEach(instruction -> this.submitInstruction(invoker, instruction));
 
         invoker.executeCommands();
 
