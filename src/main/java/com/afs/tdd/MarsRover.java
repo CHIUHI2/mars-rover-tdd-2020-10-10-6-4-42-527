@@ -14,11 +14,17 @@ public class MarsRover {
         this.direction = direction;
     }
 
-    public int getXLocation() { return xLocation; }
+    public int getXLocation() {
+        return xLocation;
+    }
 
-    public int getYLocation() { return yLocation; }
+    public int getYLocation() {
+        return yLocation;
+    }
 
-    public Direction getDirection() { return direction; }
+    public Direction getDirection() {
+        return direction;
+    }
 
     public void processInstructions(String instructions) {
         Invoker invoker = new Invoker();
@@ -35,15 +41,15 @@ public class MarsRover {
 
     public void submitInstruction(Invoker invoker, Instruction instruction) {
         switch (instruction) {
-            case MOVE_FORWARD :
+            case MOVE_FORWARD:
                 MoveForwardCommand moveForwardCommand = new MoveForwardCommand(this);
                 invoker.addCommand(moveForwardCommand);
                 break;
-            case TURN_RIGHT :
+            case TURN_RIGHT:
                 TurnRightCommand turnRightCommand = new TurnRightCommand(this);
                 invoker.addCommand(turnRightCommand);
                 break;
-            case TURN_LEFT :
+            case TURN_LEFT:
                 TurnLeftCommand turnLeftCommand = new TurnLeftCommand(this);
                 invoker.addCommand(turnLeftCommand);
                 break;
@@ -52,52 +58,26 @@ public class MarsRover {
 
     public void moveForward() {
         switch (this.direction) {
-            case NORTH :
+            case NORTH:
                 this.yLocation += 1;
                 break;
-            case EAST :
+            case EAST:
                 this.xLocation += 1;
                 break;
-            case SOUTH :
+            case SOUTH:
                 this.yLocation -= 1;
                 break;
-            case WEST :
+            case WEST:
                 this.xLocation -= 1;
                 break;
         }
     }
 
     public void turnLeft() {
-        switch (this.direction) {
-            case NORTH :
-                this.direction = Direction.WEST;
-                break;
-            case EAST :
-                this.direction = Direction.NORTH;
-                break;
-            case SOUTH :
-                this.direction = Direction.EAST;
-                break;
-            case WEST :
-                this.direction = Direction.SOUTH;
-                break;
-        }
+        this.direction = this.direction.getLeft();
     }
 
     public void turnRight() {
-        switch (this.direction) {
-            case NORTH :
-                this.direction = Direction.EAST;
-                break;
-            case EAST :
-                this.direction = Direction.SOUTH;
-                break;
-            case SOUTH :
-                this.direction = Direction.WEST;
-                break;
-            case WEST :
-                this.direction = Direction.NORTH;
-                break;
-        }
+        this.direction = this.direction.getRight();
     }
 }
