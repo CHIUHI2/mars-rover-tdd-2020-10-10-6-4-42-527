@@ -1,6 +1,9 @@
-package com.afs.tdd;
+package com.afs.tdd.command;
 
-public class TurnLeftCommand implements Command{
+import com.afs.tdd.MarsRover;
+import com.afs.tdd.command.Command;
+
+public class TurnLeftCommand implements Command {
     private MarsRover marsRover;
 
     public TurnLeftCommand(MarsRover marsRover) {

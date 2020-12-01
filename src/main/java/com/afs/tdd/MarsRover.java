@@ -1,5 +1,9 @@
 package com.afs.tdd;
 
+import com.afs.tdd.command.MoveForwardCommand;
+import com.afs.tdd.command.TurnLeftCommand;
+import com.afs.tdd.command.TurnRightCommand;
+
 import java.util.Arrays;
 import java.util.Objects;
 

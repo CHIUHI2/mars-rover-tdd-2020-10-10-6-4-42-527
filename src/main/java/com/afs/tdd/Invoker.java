@@ -1,5 +1,7 @@
 package com.afs.tdd;
 
+import com.afs.tdd.command.Command;
+
 import java.util.ArrayList;
 import java.util.List;
 
