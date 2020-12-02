@@ -8,9 +8,9 @@ public enum Direction {
     SOUTH("S", "E", "W"),
     WEST("W", "S", "N");
 
-    private String label;
-    private String left;
-    private String right;
+    private final String label;
+    private final String left;
+    private final String right;
 
     Direction(String label, String left, String right) {
         this.label = label;
