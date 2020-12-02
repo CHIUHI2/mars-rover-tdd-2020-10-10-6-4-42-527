@@ -1,9 +1,5 @@
 package com.afs.tdd;
 
-import com.afs.tdd.command.MoveForwardCommand;
-import com.afs.tdd.command.TurnLeftCommand;
-import com.afs.tdd.command.TurnRightCommand;
-
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -11,6 +7,7 @@ public class MarsRover {
     private int xLocation;
     private int yLocation;
     private Direction direction;
+    private final CommandFactory commandFactory = new CommandFactory();
 
     public MarsRover(int xLocation, int yLocation, Direction direction) {
         this.xLocation = xLocation;
@@ -36,28 +33,11 @@ public class MarsRover {
         Arrays.stream(instructions.split(""))
                 .map(Instruction::getEnum)
                 .filter(Objects::nonNull)
-                .forEach(instruction -> this.submitInstruction(invoker, instruction));
+                .forEach(instruction -> invoker.addCommand(commandFactory.buildCommand(instruction, this)));
 
         invoker.executeCommands();
 
         System.out.printf("Y Location : %s\nX Location : %s\nHeading : %s", this.yLocation, this.xLocation, this.direction);
-    }
-
-    public void submitInstruction(Invoker invoker, Instruction instruction) {
-        switch (instruction) {
-            case MOVE_FORWARD:
-                MoveForwardCommand moveForwardCommand = new MoveForwardCommand(this);
-                invoker.addCommand(moveForwardCommand);
-                break;
-            case TURN_RIGHT:
-                TurnRightCommand turnRightCommand = new TurnRightCommand(this);
-                invoker.addCommand(turnRightCommand);
-                break;
-            case TURN_LEFT:
-                TurnLeftCommand turnLeftCommand = new TurnLeftCommand(this);
-                invoker.addCommand(turnLeftCommand);
-                break;
-        }
     }
 
     public void moveForward() {
